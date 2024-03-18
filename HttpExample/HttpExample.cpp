@@ -38,6 +38,7 @@ string findValue(const string& jsonStr, const string& key) {
     return value;
 }
 
+
 string fromIntToDataTime(int timestamp) {
     // Преобразование timestamp в структуру времени (необходимо использовать тип time_t)
     time_t rawtime = timestamp;
@@ -51,7 +52,7 @@ int main()
     setlocale(0, "ru");
 
     ////////////////hw
-    char inputCity[100]; // Буфер для хранения введенного города
+    char inputCity[256]; // Буфер для хранения введенного города
     cout << " Input your city : ";
     cin.getline(inputCity, sizeof(inputCity));
     //////////////////hw
