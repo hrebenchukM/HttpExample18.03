@@ -50,6 +50,13 @@ int main()
 {
     setlocale(0, "ru");
 
+    ////////////////hw
+    char inputCity[100]; // Буфер для хранения введенного города
+    cout << " Input your city : ";
+    cin.getline(inputCity, sizeof(inputCity));
+    //////////////////hw
+
+
     //1. инициализация "Ws2_32.dll" для текущего процесса
     WSADATA wsaData;
     WORD wVersionRequested = MAKEWORD(2, 2);
@@ -63,6 +70,8 @@ int main()
 
     //инициализация структуры, для указания ip адреса и порта сервера с которым мы хотим соединиться
    
+   
+
     char hostname[255] = "api.openweathermap.org";//не сокет а точка подключения к хосту
     
     addrinfo* result = NULL;    
@@ -106,7 +115,16 @@ int main()
 
     //4. HTTP Request
 
-    string uri = "/data/2.5/weather?q=Odessa&appid=75f6e64d49db78658d09cb5ab201e483&mode=JSON&units=metric";
+   // string uri = "/data/2.5/weather?q=Odessa&appid=75f6e64d49db78658d09cb5ab201e483&mode=JSON&units=metric";
+   
+    
+    
+    ///////////hw
+    string uri = "/data/2.5/weather?q=";
+    uri = uri + inputCity;
+    uri = uri + "&appid=75f6e64d49db78658d09cb5ab201e483&mode=JSON&units=metric";
+    ///////////hw
+
 
     string request = "GET " + uri + " HTTP/1.1\n"; 
     request += "Host: " + string(hostname) + "\n";
